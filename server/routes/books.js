@@ -53,11 +53,11 @@ router.post('/add', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
     let newBook = book({
-      "Title":req.body.Title,
-      "Description": req.body.Description,
-      "Price": req.body.Price,
-      "Author":req.body.Author,
-      "Genre":req.body.Genre
+      "Title":req.body.title,
+      "Description": req.body.description,
+      "Price": req.body.price,
+      "Author":req.body.author,
+      "Genre":req.body.genre
     
     });
 
@@ -105,11 +105,11 @@ router.post('/:id', (req, res, next) => {
 
     let updatedBook = book({
       "_id":id,
-      "Title":req.body.Title,
-      "Description": req.body.Description,
-      "Price": req.body.Price,
-      "Author":req.body.Author,
-      "Genre":req.body.Genre
+      "Title": req.body.title,
+      "Description": req.body.description,
+      "Price": req.body.price,
+      "Author":req.body.author,
+      "Genre":req.body.genre
     
     });
     
