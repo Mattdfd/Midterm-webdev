@@ -6,6 +6,15 @@ let mongoose = require('mongoose');
 // define the book model
 let book = require('../models/books');
 
+const data = {
+  Title: "hello",
+  Description:"dasdas",
+  Price:100,
+  Author:"me",
+  Genre:"computer"
+};
+
+
 /* GET books List page. READ */
 router.get('/', (req, res, next) => {
   // find all books in the books collection
@@ -14,6 +23,7 @@ router.get('/', (req, res, next) => {
       return console.error(err);
     }
     else {
+      console.log(books)
       res.render('books/index', {
         title: 'Books',
         books: books
@@ -29,7 +39,7 @@ router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-
+     res.render('books/details', {title: 'Add Book'}) 
 });
 
 // POST process the Book Details page and create a new Book - CREATE
@@ -38,6 +48,23 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    let newBook = book({
+      "Title":req.body.Title,
+      "Description": req.body.Description,
+      "Price": req.body.Price,
+      "Author":req.body.Author,
+      "Genre":req.body.Genre
+    
+    });
+
+    Book.create(newBook, (err,book) =>{
+      if(err){
+        console.log(err);
+         res.end(err);
+    }else{
+      res.redirect("/books/details")
+    }
+  });
 
 });
 
