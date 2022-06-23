@@ -1,3 +1,5 @@
+// Matthew Mikhaiel - 301229715 - MidTerm - COMP229-Midterm-301229715
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -40,7 +42,7 @@ router.get('/', (req, res, next) => {
 router.get('/add', (req, res, next) => {
 
     /*****************
-     * ADD CODE HERE *
+     * ADD CODE HERE *  ****Completed*****
      *****************/
    
      res.render('books/details', {title: 'Add Book', books:""  }) 
@@ -50,7 +52,7 @@ router.get('/add', (req, res, next) => {
 router.post('/add', (req, res, next) => {
 
     /*****************
-     * ADD CODE HERE *
+     * ADD CODE HERE *  ****Completed*****
      *****************/
     let newBook = book({
       "Title":req.body.title,
@@ -76,7 +78,7 @@ router.post('/add', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
 
     /*****************
-     * ADD CODE HERE *
+     * ADD CODE HERE *  ****Completed*****
      *****************/
      let id = req.params.id;
 
@@ -98,8 +100,8 @@ router.get('/:id', (req, res, next) => {
 // POST - process the information passed from the details form and update the document
 router.post('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
+    /***************** 
+     * ADD CODE HERE *  ****Completed*****
      *****************/
      let id = req.params.id
 
@@ -121,7 +123,7 @@ router.post('/:id', (req, res, next) => {
         }
         else
         {
-            // refresh the book list
+            
             res.redirect('/books');
         }
     });
@@ -132,7 +134,7 @@ router.post('/:id', (req, res, next) => {
 router.get('/delete/:id', (req, res, next) => {
 
     /*****************
-     * ADD CODE HERE *
+     * ADD CODE HERE *   ****Completed*****
      *****************/
      let id = req.params.id;
 
